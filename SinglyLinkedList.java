@@ -68,9 +68,10 @@ public class SinglyLinkedList<E> {
     // Write your codes below
     public String toString(){
         Node walk = this.head;
+
         StringBuilder sb = new StringBuilder();
 
-        while (walk != tail){
+        while (walk != null){
             sb.append(walk.getElement());
             walk = walk.getNext();
         }
@@ -79,6 +80,17 @@ public class SinglyLinkedList<E> {
     }
 
     public E removeLast(){
+
+        if (head == null) return null;
+
+        if (head == tail){
+            E element = head.getElement();
+            
+            head = null; 
+            tail = null;
+
+            return element;
+        }
 
         Node newLast = head;
         while (newLast.getNext() != tail){
@@ -99,6 +111,7 @@ public class SinglyLinkedList<E> {
 
         Node previous = null;
         Node walker = head;
+        tail = head; 
 
         while (walker != null){
             Node next = walker.getNext();

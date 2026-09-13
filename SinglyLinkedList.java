@@ -88,6 +88,7 @@ public class SinglyLinkedList<E> {
             
             head = null; 
             tail = null;
+            size--; 
 
             return element;
         }
@@ -98,10 +99,9 @@ public class SinglyLinkedList<E> {
         }
 
         E element = tail.getElement();
-
         tail = newLast;
-
         tail.setNext(null);
+        size--;
 
         return element;
       
